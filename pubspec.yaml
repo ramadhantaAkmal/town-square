@@ -7,6 +7,7 @@ environment:
   sdk: ^3.5.4
 
 dependencies:
+  flutter_svg: ^2.0.10+1
   flutter:
     sdk: flutter
 
@@ -15,5 +16,14 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^4.0.0
 
+fonts:
+    - family: SFProDisplay
+      fonts:
+        - asset: assets/fonts/sf-pro-display/SFPRODISPLAYBOLD.OTF
+        # - asset: assets/fonts/sf-pro-display/SFPRODISPLAYBOLD.OTF
+  
 flutter:
   uses-material-design: true
+  assets:
+  - assets/images/
+  - assets/icons/
