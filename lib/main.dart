@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:town_square/features/activity_screen/main_activity.dart';
+import 'package:town_square/features/activity_screen/view/main_activity.dart';
 
 void main() {
   runApp(const MainApp());
@@ -10,8 +10,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          bottomNavigationBarTheme:
+              BottomNavigationBarThemeData(backgroundColor: Colors.amber)),
       home: MainActivity(),
     );
   }
