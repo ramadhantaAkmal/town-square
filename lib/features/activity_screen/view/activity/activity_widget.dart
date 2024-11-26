@@ -59,8 +59,6 @@ class ActivityWidget extends StatelessWidget {
                           maxRadius: defaultSize * 5.0,
                           backgroundImage:
                               AssetImage("assets/images/profile.png"),
-                          foregroundImage:
-                              AssetImage("assets/images/profile.png"),
                         ),
                       ),
                     ],

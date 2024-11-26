@@ -30,10 +30,7 @@ class MainActivity extends StatelessWidget {
       child: Row(
         children: [
           if (isDesktop) ...[
-            const Expanded(
-              flex: 3,
-              child: SideMenu(),
-            ),
+            const SideMenu(),
             const SizedBox(width: defaultSize * 8.0),
           ],
           Expanded(flex: 5, child: ActivityWidget()),
@@ -63,10 +60,11 @@ class MainActivity extends StatelessWidget {
             items: [
               BottomNavigationBarItem(
                   icon: SvgPicture.asset("assets/icons/calendar.svg"),
-                  label: "calendar",
+                  label: "Activities",
                   backgroundColor: Colors.white),
               BottomNavigationBarItem(
-                  icon: SvgPicture.asset("assets/icons/map.svg"), label: "map"),
+                  icon: SvgPicture.asset("assets/icons/map.svg"),
+                  label: "Locations"),
               BottomNavigationBarItem(
                   icon: SvgPicture.asset("assets/icons/plus.svg"),
                   label: "add"),
@@ -75,7 +73,7 @@ class MainActivity extends StatelessWidget {
                   label: "users"),
               BottomNavigationBarItem(
                   icon: SvgPicture.asset("assets/icons/star.svg"),
-                  label: "star"),
+                  label: "Services"),
             ],
           )
         : null;
