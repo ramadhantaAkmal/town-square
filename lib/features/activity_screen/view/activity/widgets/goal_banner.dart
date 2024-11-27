@@ -3,7 +3,10 @@ import 'package:town_square/config/themes/text_styles.dart';
 import 'package:town_square/config/themes/themes.dart';
 
 class GoalBanner extends StatelessWidget {
-  const GoalBanner({super.key, required this.isDesktop});
+  final double? height;
+  final double? width;
+  const GoalBanner(
+      {super.key, required this.isDesktop, this.height, this.width});
   final bool isDesktop;
   static final mobileFont = MobileFont();
   static final desktopFont = DesktopFont();
@@ -11,17 +14,18 @@ class GoalBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.sizeOf(context).width,
-      height: 121,
-      decoration: const BoxDecoration(
+      width: width ?? MediaQuery.sizeOf(context).width,
+      height: height ?? 121,
+      decoration: BoxDecoration(
           color: primary200,
           borderRadius: BorderRadius.all(Radius.circular(10)),
           boxShadow: [
-            BoxShadow(
-                color: neutralBlackShadow,
-                offset: Offset(3, 3),
-                blurRadius: 8,
-                spreadRadius: 0)
+            if (isDesktop)
+              BoxShadow(
+                  color: neutralBlackShadow,
+                  offset: Offset(3, 3),
+                  blurRadius: 8,
+                  spreadRadius: 0)
           ]),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14.29),
@@ -35,7 +39,7 @@ class GoalBanner extends StatelessWidget {
                 children: [
                   Text(
                     "You're close to your goal!",
-                    style: !isDesktop
+                    style: isDesktop
                         ? mobileFont.subtitle1_16
                         : desktopFont.subtitle1_20,
                   ),

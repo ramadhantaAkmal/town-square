@@ -11,6 +11,7 @@ const Color neutral200 = Color(0XFFE9ECEF);
 const Color neutral300 = Color(0XFFDEE2E6);
 const Color neutral500 = Color(0XFFADB5BD);
 
+const Color yellowSecondary200 = Color(0XFFFBF2C0);
 const Color yellowSecondary300 = Color(0XFFFFF09C);
 const Color purpleSecondary200 = Color(0XFFEEE1F5);
 const Color purpleSecondary400 = Color(0XFFBAA1C8);

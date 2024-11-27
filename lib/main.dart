@@ -13,6 +13,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+          fontFamily: "SFProDisplay",
           bottomNavigationBarTheme:
               BottomNavigationBarThemeData(backgroundColor: Colors.amber)),
       home: MainActivity(),

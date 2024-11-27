@@ -25,21 +25,27 @@ class MainActivity extends StatelessWidget {
 
   _buildBody(BuildContext context) {
     isDesktop = Responsive.isDesktop(context);
-    return Container(
-      // constraints: BoxConstraints(maxWidth: maxWidth),
-      child: Row(
-        children: [
-          if (isDesktop) ...[
-            const SideMenu(),
-            const SizedBox(width: defaultSize * 8.0),
-          ],
-          Expanded(flex: 5, child: ActivityWidget()),
-          if (isDesktop) ...[
-            const SizedBox(width: defaultSize * 13.0),
-            const BannerWidget(),
-          ],
+    return Row(
+      children: [
+        if (isDesktop) ...[
+          const SideMenu(),
+          const SizedBox(width: defaultSize * 8.0),
         ],
-      ),
+        Expanded(
+            child: SingleChildScrollView(
+                child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(flex: 8, child: ActivityWidget()),
+            if (isDesktop)
+              Expanded(
+                  flex: 4,
+                  child: BannerWidget(
+                    isDesktop: isDesktop,
+                  )),
+          ],
+        ))),
+      ],
     );
   }
 
