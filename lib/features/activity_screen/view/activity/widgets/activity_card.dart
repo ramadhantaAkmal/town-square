@@ -10,9 +10,6 @@ class ActivityCard extends StatelessWidget {
   final ActivityModel activity;
   const ActivityCard({super.key, required this.activity});
 
-  static final mobileFont = MobileFont();
-  static final desktopFont = DesktopFont();
-
   @override
   Widget build(BuildContext context) {
     var isDesktop = Responsive.isDesktop(context);
@@ -74,19 +71,17 @@ class ActivityCard extends StatelessWidget {
                     children: [
                       Text(
                         activity.time,
-                        style: mobileFont.body2_12,
+                        style: mobileBody2,
                       ),
                       Text(
                         " (${activity.duration} min)",
-                        style: mobileFont.body2_12.copyWith(color: neutral500),
+                        style: mobileBody2.copyWith(color: neutral500),
                       ),
                     ],
                   ),
                   Text(
                     activity.activityName,
-                    style: isDesktop
-                        ? desktopFont.subtitle2_20
-                        : mobileFont.subtitle2_14,
+                    style: isDesktop ? desktopSubtitle2 : mobileSubtitle2,
                   ),
                   Row(
                     children: [
@@ -94,8 +89,8 @@ class ActivityCard extends StatelessWidget {
                       Text(
                         activity.location,
                         style: isDesktop
-                            ? desktopFont.body1_14
-                            : mobileFont.body2_12.copyWith(color: neutral500),
+                            ? desktopBody1
+                            : mobileBody2.copyWith(color: neutral500),
                       ),
                     ],
                   ),
@@ -115,10 +110,8 @@ class ActivityCard extends StatelessWidget {
                             Text(
                               "${activity.spots} spots left",
                               style: isDesktop
-                                  ? desktopFont.body3_12
-                                      .copyWith(color: neutral500)
-                                  : mobileFont.body3_10
-                                      .copyWith(color: neutral500),
+                                  ? desktopBody3.copyWith(color: neutral500)
+                                  : mobileBody3.copyWith(color: neutral500),
                             ),
                           ],
                         ),
@@ -134,10 +127,10 @@ class ActivityCard extends StatelessWidget {
                         child: Text(
                           activity.intensity,
                           style: isDesktop
-                              ? desktopFont.body3bold_12
-                                  .copyWith(color: intensityTitleColor!)
-                              : mobileFont.body3bold_10
-                                  .copyWith(color: intensityTitleColor!),
+                              ? desktopBody3Bold.copyWith(
+                                  color: intensityTitleColor!)
+                              : mobileBody3Bold.copyWith(
+                                  color: intensityTitleColor!),
                         ),
                       ),
                       if (activity.category != null)
@@ -151,10 +144,10 @@ class ActivityCard extends StatelessWidget {
                           child: Text(
                             activity.category!,
                             style: isDesktop
-                                ? desktopFont.body3bold_12
-                                    .copyWith(color: categoryTitleColor)
-                                : mobileFont.body3bold_10
-                                    .copyWith(color: categoryTitleColor),
+                                ? desktopBody3Bold.copyWith(
+                                    color: categoryTitleColor)
+                                : mobileBody3Bold.copyWith(
+                                    color: categoryTitleColor),
                           ),
                         ),
                     ],
@@ -164,12 +157,8 @@ class ActivityCard extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    "${activity.price}€",
-                    style: isDesktop
-                        ? desktopFont.subtitle2_20
-                        : mobileFont.subtitle2_14,
-                  ),
+                  Text("${activity.price}€",
+                      style: isDesktop ? desktopSubtitle2 : mobileSubtitle2),
                   SizedBox(
                     height: defaultSize * 4,
                   ),
@@ -186,8 +175,8 @@ class ActivityCard extends StatelessWidget {
                             child: Center(
                               child: Text(
                                 "Join",
-                                style: mobileFont.body2_12
-                                    .copyWith(color: neutralWhite),
+                                style:
+                                    mobileBody2.copyWith(color: neutralWhite),
                               ),
                             ),
                           ),
@@ -204,8 +193,8 @@ class ActivityCard extends StatelessWidget {
                             child: Center(
                               child: Text(
                                 "Sold out",
-                                style: mobileFont.body2_12
-                                    .copyWith(color: neutralWhite),
+                                style:
+                                    mobileBody2.copyWith(color: neutralWhite),
                               ),
                             ),
                           ),

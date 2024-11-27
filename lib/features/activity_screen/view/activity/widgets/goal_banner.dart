@@ -5,11 +5,7 @@ import 'package:town_square/config/themes/themes.dart';
 class GoalBanner extends StatelessWidget {
   final double? height;
   final double? width;
-  const GoalBanner(
-      {super.key, required this.isDesktop, this.height, this.width});
-  final bool isDesktop;
-  static final mobileFont = MobileFont();
-  static final desktopFont = DesktopFont();
+  const GoalBanner({super.key, this.height, this.width});
 
   @override
   Widget build(BuildContext context) {
@@ -20,12 +16,11 @@ class GoalBanner extends StatelessWidget {
           color: primary200,
           borderRadius: BorderRadius.all(Radius.circular(10)),
           boxShadow: [
-            if (isDesktop)
-              BoxShadow(
-                  color: neutralBlackShadow,
-                  offset: Offset(3, 3),
-                  blurRadius: 8,
-                  spreadRadius: 0)
+            BoxShadow(
+                color: neutralBlackShadow,
+                offset: Offset(3, 3),
+                blurRadius: 8,
+                spreadRadius: 0)
           ]),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14.29),
@@ -39,13 +34,11 @@ class GoalBanner extends StatelessWidget {
                 children: [
                   Text(
                     "You're close to your goal!",
-                    style: isDesktop
-                        ? mobileFont.subtitle1_16
-                        : desktopFont.subtitle1_20,
+                    style: mobileSubtitle1,
                   ),
                   Text(
                     "Join more sport activities to collect more points",
-                    style: desktopFont.body3_12,
+                    style: desktopBody3,
                     maxLines: 2,
                   ),
                   Padding(
@@ -64,8 +57,8 @@ class GoalBanner extends StatelessWidget {
                             child: Center(
                               child: Text(
                                 "Join now",
-                                style: mobileFont.body2_12
-                                    .copyWith(color: neutralWhite),
+                                style:
+                                    mobileBody2.copyWith(color: neutralWhite),
                               ),
                             ),
                           ),
@@ -85,8 +78,8 @@ class GoalBanner extends StatelessWidget {
                             child: Center(
                               child: Text(
                                 "My points",
-                                style: mobileFont.body2_12
-                                    .copyWith(color: neutralWhite),
+                                style:
+                                    mobileBody2.copyWith(color: neutralWhite),
                               ),
                             ),
                           ),

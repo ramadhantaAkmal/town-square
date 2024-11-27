@@ -16,8 +16,7 @@ class ActivityWidget extends StatelessWidget {
   const ActivityWidget({super.key});
 
   static bool isDesktop = false;
-  static final mobileFont = MobileFont();
-  static final desktopFont = DesktopFont();
+
   static final ScrollController scrollController = ScrollController();
 
   @override
@@ -38,8 +37,8 @@ class ActivityWidget extends StatelessWidget {
               Text(
                 "Tues, Nov 12",
                 style: !isDesktop
-                    ? mobileFont.body2_12.copyWith(color: neutral500)
-                    : desktopFont.body1_14.copyWith(color: neutral500),
+                    ? mobileBody2.copyWith(color: neutral500)
+                    : desktopBody1.copyWith(color: neutral500),
               ),
               if (!isDesktop)
                 Row(
@@ -68,8 +67,8 @@ class ActivityWidget extends StatelessWidget {
           child: Text(
             "This week in Estepona",
             style: !isDesktop
-                ? mobileFont.heading2_20.copyWith(color: neutralBlack)
-                : desktopFont.heading2_24.copyWith(color: neutralBlack),
+                ? mobileHeading2.copyWith(color: neutralBlack)
+                : desktopHeading2.copyWith(color: neutralBlack),
           ),
         ),
         if (!isDesktop)
@@ -79,9 +78,7 @@ class ActivityWidget extends StatelessWidget {
               left: defaultSize * 6,
               right: defaultSize * 6,
             ),
-            child: GoalBanner(
-              isDesktop: isDesktop,
-            ),
+            child: GoalBanner(),
           ),
         const Padding(
           padding:
@@ -151,25 +148,24 @@ class ActivityWidget extends StatelessWidget {
           child: SizedBox(
             height: MediaQuery.sizeOf(context).height,
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
                   padding: const EdgeInsets.only(right: 16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                  child: Stack(
+                    alignment: Alignment.topCenter,
                     children: [
+                      DottedLine(
+                        direction: Axis.vertical,
+                        lineLength: 152.0 * (activityList.length + 1),
+                        dashColor: neutral300,
+                      ),
                       Container(
                         width: 12,
                         height: 12,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(50),
                           color: yellowSecondary300,
-                        ),
-                      ),
-                      Expanded(
-                        child: DottedLine(
-                          direction: Axis.vertical,
-                          lineLength: 136.0 * activityList.length,
-                          dashColor: neutral300,
                         ),
                       ),
                     ],
@@ -182,12 +178,11 @@ class ActivityWidget extends StatelessWidget {
                         children: [
                           Text(
                             "Today ",
-                            style: mobileFont.subtitle1_16,
+                            style: mobileSubtitle1,
                           ),
                           Text(
                             "/ tuesday",
-                            style:
-                                mobileFont.body2_12.copyWith(color: neutral500),
+                            style: mobileBody2.copyWith(color: neutral500),
                           ),
                         ],
                       ),

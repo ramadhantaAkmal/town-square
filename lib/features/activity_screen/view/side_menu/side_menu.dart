@@ -3,9 +3,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:town_square/config/constant/constant.dart';
 import 'package:town_square/config/themes/text_styles.dart';
 import 'package:town_square/config/themes/themes.dart';
+part 'widgets/menu_button.dart';
 
 class SideMenu extends StatelessWidget {
-  static final desktopFont = DesktopFont();
   const SideMenu({super.key});
 
   @override
@@ -34,23 +34,28 @@ class SideMenu extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  InkWell(
+                  builMenuButton(
                     onTap: () {},
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        SvgPicture.asset("assets/icons/calendar_white.svg"),
-                        Padding(
-                          padding: const EdgeInsets.only(left: defaultSize * 8),
-                          child: Text(
-                            "Activities",
-                            style: desktopFont.subtitle1_20
-                                .copyWith(color: Colors.white),
-                          ),
-                        ),
-                      ],
-                    ),
+                    title: "Activities",
+                    widget: SvgPicture.asset("assets/icons/calendar_white.svg"),
                   ),
+                  // InkWell(
+                  //   onTap: () {},
+                  //   child: Row(
+                  //     mainAxisAlignment: MainAxisAlignment.start,
+                  //     children: [
+                  //       SvgPicture.asset("assets/icons/calendar_white.svg"),
+                  //       Padding(
+                  //         padding: const EdgeInsets.only(left: defaultSize * 8),
+                  //         child: Text(
+                  //           "Activities",
+                  //           style:
+                  //               desktopSubtitle1.copyWith(color: Colors.white),
+                  //         ),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
                   const SizedBox(
                     height: 32,
                   ),
@@ -64,8 +69,8 @@ class SideMenu extends StatelessWidget {
                           padding: const EdgeInsets.only(left: defaultSize * 8),
                           child: Text(
                             "Locations",
-                            style: desktopFont.subtitle1_20
-                                .copyWith(color: Colors.white),
+                            style:
+                                desktopSubtitle1.copyWith(color: Colors.white),
                           ),
                         ),
                       ],
@@ -84,8 +89,8 @@ class SideMenu extends StatelessWidget {
                           padding: const EdgeInsets.only(left: defaultSize * 8),
                           child: Text(
                             "Services",
-                            style: desktopFont.subtitle1_20
-                                .copyWith(color: Colors.white),
+                            style:
+                                desktopSubtitle1.copyWith(color: Colors.white),
                           ),
                         ),
                       ],
@@ -104,8 +109,8 @@ class SideMenu extends StatelessWidget {
                           padding: const EdgeInsets.only(left: defaultSize * 8),
                           child: Text(
                             "Communities",
-                            style: desktopFont.subtitle1_20
-                                .copyWith(color: Colors.white),
+                            style:
+                                desktopSubtitle1.copyWith(color: Colors.white),
                           ),
                         ),
                       ],
@@ -124,8 +129,8 @@ class SideMenu extends StatelessWidget {
                           padding: const EdgeInsets.only(left: defaultSize * 8),
                           child: Text(
                             "Notifications",
-                            style: desktopFont.subtitle1_20
-                                .copyWith(color: Colors.white),
+                            style:
+                                desktopSubtitle1.copyWith(color: Colors.white),
                           ),
                         ),
                       ],
@@ -139,8 +144,7 @@ class SideMenu extends StatelessWidget {
                     icon: SvgPicture.asset("assets/icons/plus_sidemenu.svg"),
                     label: Text(
                       "Create",
-                      style: desktopFont.subtitle1_20
-                          .copyWith(color: Colors.black),
+                      style: desktopSubtitle1.copyWith(color: Colors.black),
                     ),
                     style: const ButtonStyle(
                         backgroundColor: WidgetStatePropertyAll(primary600),
@@ -164,8 +168,7 @@ class SideMenu extends StatelessWidget {
                         ),
                         Text(
                           "Profile",
-                          style: desktopFont.subtitle1_20
-                              .copyWith(color: Colors.white),
+                          style: desktopSubtitle1.copyWith(color: Colors.white),
                         ),
                         IconButton(
                             onPressed: () {},

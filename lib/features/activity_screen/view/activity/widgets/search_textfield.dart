@@ -6,7 +6,6 @@ import 'package:town_square/config/themes/themes.dart';
 
 class SearchTextfield extends StatelessWidget {
   const SearchTextfield({super.key});
-  static final mobileFont = MobileFont();
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -33,7 +32,7 @@ class SearchTextfield extends StatelessWidget {
                 "assets/icons/search.svg",
               ),
               hintText: "What do you feel like doing?",
-              hintStyle: mobileFont.body1_14.copyWith(color: neutral500),
+              hintStyle: mobileBody1.copyWith(color: neutral500),
             ),
           ),
         ),

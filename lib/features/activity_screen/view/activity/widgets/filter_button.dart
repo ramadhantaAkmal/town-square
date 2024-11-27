@@ -11,7 +11,6 @@ class FilterButton extends StatefulWidget {
 }
 
 class _FilterButtonState extends State<FilterButton> {
-  static final desktopFont = DesktopFont();
   bool isSelected = false;
 
   @override
@@ -30,8 +29,8 @@ class _FilterButtonState extends State<FilterButton> {
           ),
           backgroundColor: WidgetStatePropertyAll(
               isSelected ? purpleSecondary400 : purpleSecondary200)),
-      child: Text(widget.text,
-          style: desktopFont.body2_14.copyWith(color: neutralBlack)),
+      child:
+          Text(widget.text, style: desktopBody2.copyWith(color: neutralBlack)),
     );
   }
 }

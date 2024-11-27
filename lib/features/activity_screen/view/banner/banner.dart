@@ -3,13 +3,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:town_square/config/constant/constant.dart';
 import 'package:town_square/config/themes/text_styles.dart';
 import 'package:town_square/config/themes/themes.dart';
-import 'package:town_square/features/activity_screen/view/activity/widgets/goal_banner.dart';
+import 'package:town_square/features/activity_screen/view/banner/widget/goal_banner_desktop.dart';
 
 class BannerWidget extends StatelessWidget {
   final bool isDesktop;
   const BannerWidget({super.key, required this.isDesktop});
-
-  static final desktopFont = DesktopFont();
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +15,7 @@ class BannerWidget extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.only(top: 65, bottom: 29),
-          child: GoalBanner(
-            isDesktop: isDesktop,
+          child: GoalBannerDesktop(
             height: 143,
             width: 283,
           ),
@@ -38,14 +35,14 @@ class BannerWidget extends StatelessWidget {
               children: [
                 Text(
                   "Weekly workshops",
-                  style: desktopFont.subtitle2_20,
+                  style: desktopSubtitle2,
                   maxLines: 2,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 9),
                   child: Text(
                     "for kids",
-                    style: desktopFont.subtitle2_20,
+                    style: desktopSubtitle2,
                     maxLines: 2,
                   ),
                 ),
@@ -53,7 +50,7 @@ class BannerWidget extends StatelessWidget {
                   padding: const EdgeInsets.only(bottom: 9),
                   child: Text(
                     "Sign up for early access to weekly activities for your kids full of learning and fun!",
-                    style: desktopFont.body3_12,
+                    style: desktopBody3,
                   ),
                 ),
                 Padding(
@@ -108,10 +105,12 @@ class BannerWidget extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          SizedBox(
+          Container(
             width: 282,
             height: 302,
+            padding: EdgeInsets.only(left: 19),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
                   padding: const EdgeInsets.only(top: 30),
@@ -120,21 +119,18 @@ class BannerWidget extends StatelessWidget {
                     children: [
                       Text(
                         "Popular events near you!",
-                        style: desktopFont.subtitle1_20
-                            .copyWith(color: Colors.white),
+                        style: desktopSubtitle1.copyWith(color: Colors.white),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(top: 123),
                         child: Text(
                           "Unleash the fun! Explore the world",
-                          style: desktopFont.body1_14
-                              .copyWith(color: Colors.white),
+                          style: desktopBody1.copyWith(color: Colors.white),
                         ),
                       ),
                       Text(
                         "exciting events happening near you.",
-                        style:
-                            desktopFont.body1_14.copyWith(color: Colors.white),
+                        style: desktopBody1.copyWith(color: Colors.white),
                       ),
                     ],
                   ),
