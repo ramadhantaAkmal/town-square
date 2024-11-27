@@ -36,7 +36,7 @@ class MainActivity extends StatelessWidget {
                 child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(flex: 8, child: ActivityWidget()),
+            const Expanded(flex: 8, child: ActivityWidget()),
             if (isDesktop)
               Expanded(
                   flex: 4,

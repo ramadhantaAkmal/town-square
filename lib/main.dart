@@ -15,8 +15,8 @@ class MainApp extends StatelessWidget {
       theme: ThemeData(
           fontFamily: "SFProDisplay",
           bottomNavigationBarTheme:
-              BottomNavigationBarThemeData(backgroundColor: Colors.amber)),
-      home: MainActivity(),
+              const BottomNavigationBarThemeData(backgroundColor: Colors.amber)),
+      home: const MainActivity(),
     );
   }
 }

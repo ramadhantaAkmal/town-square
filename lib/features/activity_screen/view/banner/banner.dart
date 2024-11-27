@@ -13,8 +13,8 @@ class BannerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 65, bottom: 29),
+        const Padding(
+          padding: EdgeInsets.only(top: 65, bottom: 29),
           child: GoalBannerDesktop(
             height: 143,
             width: 283,
@@ -28,26 +28,26 @@ class BannerWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10)),
             height: 209,
             width: 285,
-            padding: EdgeInsets.only(left: 16, right: 25),
+            padding: const EdgeInsets.only(left: 16, right: 25),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   "Weekly workshops",
                   style: desktopSubtitle2,
                   maxLines: 2,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 9),
+                const Padding(
+                  padding: EdgeInsets.only(bottom: 9),
                   child: Text(
                     "for kids",
                     style: desktopSubtitle2,
                     maxLines: 2,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 9),
+                const Padding(
+                  padding: EdgeInsets.only(bottom: 9),
                   child: Text(
                     "Sign up for early access to weekly activities for your kids full of learning and fun!",
                     style: desktopBody3,
@@ -61,7 +61,7 @@ class BannerWidget extends StatelessWidget {
                       height: 28,
                       width: 244,
                       padding:
-                          EdgeInsets.symmetric(horizontal: defaultSize * 2),
+                          const EdgeInsets.symmetric(horizontal: defaultSize * 2),
                       decoration: const BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.all(
@@ -108,7 +108,7 @@ class BannerWidget extends StatelessWidget {
           Container(
             width: 282,
             height: 302,
-            padding: EdgeInsets.only(left: 19),
+            padding: const EdgeInsets.only(left: 19),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -146,7 +146,7 @@ class BannerWidget extends StatelessWidget {
                           child: Container(
                             height: 39,
                             width: 188,
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                               horizontal: defaultSize * 2,
                             ),
                             decoration: const BoxDecoration(

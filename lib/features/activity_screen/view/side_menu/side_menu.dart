@@ -39,102 +39,37 @@ class SideMenu extends StatelessWidget {
                     title: "Activities",
                     widget: SvgPicture.asset("assets/icons/calendar_white.svg"),
                   ),
-                  // InkWell(
-                  //   onTap: () {},
-                  //   child: Row(
-                  //     mainAxisAlignment: MainAxisAlignment.start,
-                  //     children: [
-                  //       SvgPicture.asset("assets/icons/calendar_white.svg"),
-                  //       Padding(
-                  //         padding: const EdgeInsets.only(left: defaultSize * 8),
-                  //         child: Text(
-                  //           "Activities",
-                  //           style:
-                  //               desktopSubtitle1.copyWith(color: Colors.white),
-                  //         ),
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
                   const SizedBox(
                     height: 32,
                   ),
-                  InkWell(
+                  builMenuButton(
                     onTap: () {},
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        SvgPicture.asset("assets/icons/map_white.svg"),
-                        Padding(
-                          padding: const EdgeInsets.only(left: defaultSize * 8),
-                          child: Text(
-                            "Locations",
-                            style:
-                                desktopSubtitle1.copyWith(color: Colors.white),
-                          ),
-                        ),
-                      ],
-                    ),
+                    title: "Locations",
+                    widget: SvgPicture.asset("assets/icons/map_white.svg"),
                   ),
                   const SizedBox(
                     height: 32,
                   ),
-                  InkWell(
+                  builMenuButton(
                     onTap: () {},
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        SvgPicture.asset("assets/icons/star_white.svg"),
-                        Padding(
-                          padding: const EdgeInsets.only(left: defaultSize * 8),
-                          child: Text(
-                            "Services",
-                            style:
-                                desktopSubtitle1.copyWith(color: Colors.white),
-                          ),
-                        ),
-                      ],
-                    ),
+                    title: "Services",
+                    widget: SvgPicture.asset("assets/icons/star_white.svg"),
                   ),
                   const SizedBox(
                     height: 32,
                   ),
-                  InkWell(
+                  builMenuButton(
                     onTap: () {},
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        SvgPicture.asset("assets/icons/users_white.svg"),
-                        Padding(
-                          padding: const EdgeInsets.only(left: defaultSize * 8),
-                          child: Text(
-                            "Communities",
-                            style:
-                                desktopSubtitle1.copyWith(color: Colors.white),
-                          ),
-                        ),
-                      ],
-                    ),
+                    title: "Communities",
+                    widget: SvgPicture.asset("assets/icons/users_white.svg"),
                   ),
                   const SizedBox(
                     height: 32,
                   ),
-                  InkWell(
+                  builMenuButton(
                     onTap: () {},
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        SvgPicture.asset("assets/icons/bell_white.svg"),
-                        Padding(
-                          padding: const EdgeInsets.only(left: defaultSize * 8),
-                          child: Text(
-                            "Notifications",
-                            style:
-                                desktopSubtitle1.copyWith(color: Colors.white),
-                          ),
-                        ),
-                      ],
-                    ),
+                    title: "Notifications",
+                    widget: SvgPicture.asset("assets/icons/bell_white.svg"),
                   ),
                   const SizedBox(
                     height: 32,
@@ -172,7 +107,7 @@ class SideMenu extends StatelessWidget {
                         ),
                         IconButton(
                             onPressed: () {},
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.more_vert,
                               color: Colors.white,
                             ))

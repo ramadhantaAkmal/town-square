@@ -72,8 +72,8 @@ class ActivityWidget extends StatelessWidget {
           ),
         ),
         if (!isDesktop)
-          Padding(
-            padding: const EdgeInsets.only(
+          const Padding(
+            padding: EdgeInsets.only(
               top: 19.29,
               left: defaultSize * 6,
               right: defaultSize * 6,
@@ -99,7 +99,6 @@ class ActivityWidget extends StatelessWidget {
                         const EdgeInsets.only(right: 8, left: defaultSize * 6),
                     child: TextButton(
                       onPressed: () {},
-                      child: SvgPicture.asset("assets/icons/sliders.svg"),
                       style: ButtonStyle(
                           shape: WidgetStatePropertyAll<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
@@ -108,6 +107,7 @@ class ActivityWidget extends StatelessWidget {
                           ),
                           backgroundColor:
                               const WidgetStatePropertyAll(purpleSecondary200)),
+                      child: SvgPicture.asset("assets/icons/sliders.svg"),
                     ),
                   ),
                   const Padding(
@@ -176,7 +176,7 @@ class ActivityWidget extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Text(
+                          const Text(
                             "Today ",
                             style: mobileSubtitle1,
                           ),

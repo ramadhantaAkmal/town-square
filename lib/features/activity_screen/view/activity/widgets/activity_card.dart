@@ -98,8 +98,8 @@ class ActivityCard extends StatelessWidget {
                     children: [
                       Container(
                         height: isDesktop ? 22 : 16,
-                        margin: EdgeInsets.only(right: 5),
-                        padding: EdgeInsets.symmetric(horizontal: 8),
+                        margin: const EdgeInsets.only(right: 5),
+                        padding: const EdgeInsets.symmetric(horizontal: 8),
                         decoration: BoxDecoration(
                           color: neutral200,
                           borderRadius: BorderRadius.circular(2),
@@ -118,8 +118,8 @@ class ActivityCard extends StatelessWidget {
                       ),
                       Container(
                         height: isDesktop ? 22 : 16,
-                        margin: EdgeInsets.only(right: 5),
-                        padding: EdgeInsets.symmetric(horizontal: 8),
+                        margin: const EdgeInsets.only(right: 5),
+                        padding: const EdgeInsets.symmetric(horizontal: 8),
                         decoration: BoxDecoration(
                           color: intensityColor,
                           borderRadius: BorderRadius.circular(2),
@@ -136,7 +136,7 @@ class ActivityCard extends StatelessWidget {
                       if (activity.category != null)
                         Container(
                           height: isDesktop ? 22 : 16,
-                          padding: EdgeInsets.symmetric(horizontal: 8),
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
                           decoration: BoxDecoration(
                             color: categoryColor,
                             borderRadius: BorderRadius.circular(2),
@@ -159,7 +159,7 @@ class ActivityCard extends StatelessWidget {
                 children: [
                   Text("${activity.price}€",
                       style: isDesktop ? desktopSubtitle2 : mobileSubtitle2),
-                  SizedBox(
+                  const SizedBox(
                     height: defaultSize * 4,
                   ),
                   activity.spots > 0

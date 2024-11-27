@@ -12,7 +12,7 @@ class GoalBannerDesktop extends StatelessWidget {
     return Container(
       width: width ?? MediaQuery.sizeOf(context).width,
       height: height ?? 121,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: primary200,
         borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
@@ -21,7 +21,7 @@ class GoalBannerDesktop extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               "You're close to your goal!",
               style: desktopSubtitle1,
             ),
@@ -34,7 +34,7 @@ class GoalBannerDesktop extends StatelessWidget {
                     flex: 5,
                     child: Column(
                       children: [
-                        Text(
+                        const Text(
                           "Join more sport activities to collect more points",
                           style: desktopBody3,
                           maxLines: 2,
@@ -95,7 +95,7 @@ class GoalBannerDesktop extends StatelessWidget {
                       width: 65,
                       child: TweenAnimationBuilder(
                         tween: Tween<double>(begin: 0, end: 0.6),
-                        duration: Duration(seconds: 0),
+                        duration: const Duration(seconds: 0),
                         builder: (context, double value, child) => Stack(
                           fit: StackFit.expand,
                           children: [
@@ -106,7 +106,7 @@ class GoalBannerDesktop extends StatelessWidget {
                               color: primary600,
                               backgroundColor: Colors.white,
                             ),
-                            Center(
+                            const Center(
                               child: Text(
                                 "27",
                                 style: TextStyle(fontSize: 25),

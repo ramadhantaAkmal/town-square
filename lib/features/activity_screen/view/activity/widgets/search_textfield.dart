@@ -10,7 +10,7 @@ class SearchTextfield extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        decoration: BoxDecoration(boxShadow: [
+        decoration: const BoxDecoration(boxShadow: [
           BoxShadow(
             color: neutralBlackShadow,
             offset: Offset(3, 3),
@@ -22,7 +22,7 @@ class SearchTextfield extends StatelessWidget {
           child: TextField(
             textAlignVertical: TextAlignVertical.center,
             decoration: InputDecoration(
-              contentPadding: EdgeInsets.only(
+              contentPadding: const EdgeInsets.only(
                   bottom: defaultSize * 2, left: defaultSize * 4),
               border: InputBorder.none,
               filled: true,
