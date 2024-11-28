@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:town_square/config/themes/text_styles.dart';
 import 'package:town_square/config/themes/themes.dart';
+import 'package:town_square/features/activity_screen/viewmodel/bloc/activity_bloc.dart';
+import 'package:town_square/misc/activity_list.dart';
 
 class FilterButton extends StatefulWidget {
   final String text;
-  const FilterButton({super.key, required this.text});
+  final Function fn;
+  const FilterButton({super.key, required this.text, required this.fn});
 
   @override
   State<FilterButton> createState() => _FilterButtonState();
@@ -19,6 +23,7 @@ class _FilterButtonState extends State<FilterButton> {
       onPressed: () {
         setState(() {
           isSelected = !isSelected;
+          widget.fn();
         });
       },
       style: ButtonStyle(

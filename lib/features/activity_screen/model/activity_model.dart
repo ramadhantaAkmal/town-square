@@ -1,12 +1,13 @@
 class ActivityModel {
   final String activityName;
   final String time;
-  final int duration;
+  final String duration;
   final String location;
   final int spots;
   final String intensity;
   String? category;
-  final int price;
+  final String price;
+  final bool joined;
 
   ActivityModel({
     required this.activityName,
@@ -16,6 +17,7 @@ class ActivityModel {
     required this.spots,
     required this.intensity,
     required this.price,
+    required this.joined,
     this.category,
   });
 }

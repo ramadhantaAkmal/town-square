@@ -43,9 +43,9 @@ class ActivityCard extends StatelessWidget {
     }
 
     return Padding(
-      padding: const EdgeInsets.only(bottom: defaultSize * 4),
+      padding: const EdgeInsets.only(bottom: defaultSize * 4, right: 8),
       child: Container(
-        width: 200,
+        width: MediaQuery.sizeOf(context).width,
         height: isDesktop ? 136 : 109,
         decoration: const BoxDecoration(
           color: Colors.white,
@@ -74,7 +74,7 @@ class ActivityCard extends StatelessWidget {
                         style: mobileBody2,
                       ),
                       Text(
-                        " (${activity.duration} min)",
+                        " (${activity.duration})",
                         style: mobileBody2.copyWith(color: neutral500),
                       ),
                     ],
@@ -157,7 +157,7 @@ class ActivityCard extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text("${activity.price}€",
+                  Text(activity.price,
                       style: isDesktop ? desktopSubtitle2 : mobileSubtitle2),
                   const SizedBox(
                     height: defaultSize * 4,

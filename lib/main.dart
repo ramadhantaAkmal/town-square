@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:town_square/features/activity_screen/view/main_activity.dart';
+import 'package:town_square/features/activity_screen/viewmodel/bloc/activity_bloc.dart';
 
 void main() {
   runApp(const MainApp());
@@ -10,13 +12,15 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
+    return BlocProvider(
+      create: (context) => ActivityBloc(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
           fontFamily: "SFProDisplay",
-          bottomNavigationBarTheme:
-              const BottomNavigationBarThemeData(backgroundColor: Colors.amber)),
-      home: const MainActivity(),
+        ),
+        home: const MainActivity(),
+      ),
     );
   }
 }

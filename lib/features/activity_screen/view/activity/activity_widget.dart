@@ -1,5 +1,6 @@
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:town_square/config/constant/constant.dart';
 import 'package:town_square/config/themes/text_styles.dart';
@@ -8,6 +9,7 @@ import 'package:town_square/features/activity_screen/view/activity/widgets/activ
 import 'package:town_square/features/activity_screen/view/activity/widgets/filter_button.dart';
 import 'package:town_square/features/activity_screen/view/activity/widgets/goal_banner.dart';
 import 'package:town_square/features/activity_screen/view/activity/widgets/search_textfield.dart';
+import 'package:town_square/features/activity_screen/viewmodel/bloc/activity_bloc.dart';
 import 'package:town_square/misc/activity_list.dart';
 import 'package:town_square/utils/custom_scroll.dart';
 import 'package:town_square/utils/responsive_checker.dart';
@@ -18,6 +20,8 @@ class ActivityWidget extends StatelessWidget {
   static bool isDesktop = false;
 
   static final ScrollController scrollController = ScrollController();
+
+  static List<String> categories = [];
 
   @override
   Widget build(BuildContext context) {
@@ -110,33 +114,111 @@ class ActivityWidget extends StatelessWidget {
                       child: SvgPicture.asset("assets/icons/sliders.svg"),
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(right: 8),
-                    child: FilterButton(text: "All"),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8),
+                    child: FilterButton(
+                      text: "All",
+                      fn: () {
+                        if (categories.contains("all")) {
+                          categories.remove("all");
+                        } else {
+                          categories.add("all");
+                        }
+
+                        BlocProvider.of<ActivityBloc>(context)
+                            .add(FilterActivity(activityList, categories));
+                      },
+                    ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(right: 8),
-                    child: FilterButton(text: "Sports"),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8),
+                    child: FilterButton(
+                      text: "Sports",
+                      fn: () {
+                        if (categories.contains("sports")) {
+                          categories.remove("sports");
+                        } else {
+                          categories.add("sports");
+                        }
+                        BlocProvider.of<ActivityBloc>(context)
+                            .add(FilterActivity(activityList, categories));
+                      },
+                    ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(right: 8),
-                    child: FilterButton(text: "Food"),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8),
+                    child: FilterButton(
+                      text: "Food",
+                      fn: () {
+                        if (categories.contains("food")) {
+                          categories.remove("food");
+                        } else {
+                          categories.add("food");
+                        }
+                        BlocProvider.of<ActivityBloc>(context)
+                            .add(FilterActivity(activityList, categories));
+                      },
+                    ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(right: 8),
-                    child: FilterButton(text: "Kids"),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8),
+                    child: FilterButton(
+                      text: "Kids",
+                      fn: () {
+                        if (categories.contains("kids")) {
+                          categories.remove("kids");
+                        } else {
+                          categories.add("kids");
+                        }
+                        BlocProvider.of<ActivityBloc>(context)
+                            .add(FilterActivity(activityList, categories));
+                      },
+                    ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(right: 8),
-                    child: FilterButton(text: "Creative"),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8),
+                    child: FilterButton(
+                      text: "Creative",
+                      fn: () {
+                        if (categories.contains("creative")) {
+                          categories.remove("creative");
+                        } else {
+                          categories.add("creative");
+                        }
+                        BlocProvider.of<ActivityBloc>(context)
+                            .add(FilterActivity(activityList, categories));
+                      },
+                    ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(right: 8),
-                    child: FilterButton(text: "Popular"),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8),
+                    child: FilterButton(
+                      text: "Popular",
+                      fn: () {
+                        if (categories.contains("popular")) {
+                          categories.remove("popular");
+                        } else {
+                          categories.add("popular");
+                        }
+                        BlocProvider.of<ActivityBloc>(context)
+                            .add(FilterActivity(activityList, categories));
+                      },
+                    ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(right: 8),
-                    child: FilterButton(text: "Calm"),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8),
+                    child: FilterButton(
+                      text: "Calm",
+                      fn: () {
+                        if (categories.contains("calm")) {
+                          categories.remove("calm");
+                        } else {
+                          categories.add("calm");
+                        }
+                        BlocProvider.of<ActivityBloc>(context)
+                            .add(FilterActivity(activityList, categories));
+                      },
+                    ),
                   ),
                 ],
               ),
@@ -171,36 +253,99 @@ class ActivityWidget extends StatelessWidget {
                     ],
                   ),
                 ),
-                Expanded(
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          const Text(
-                            "Today ",
-                            style: mobileSubtitle1,
+                BlocBuilder<ActivityBloc, ActivityState>(
+                  builder: (context, state) {
+                    return state.when(
+                      initial: (activities) {
+                        var listActivity = activities;
+                        return Expanded(
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  const Text(
+                                    "Today ",
+                                    style: mobileSubtitle1,
+                                  ),
+                                  Text(
+                                    "/ tuesday",
+                                    style:
+                                        mobileBody2.copyWith(color: neutral500),
+                                  ),
+                                ],
+                              ),
+                              Expanded(
+                                flex: 4,
+                                child: ScrollConfiguration(
+                                  behavior: MyCustomScrollBehavior(),
+                                  child: ListView.builder(
+                                    itemCount: listActivity.length,
+                                    itemBuilder: (context, index) {
+                                      return ActivityCard(
+                                          activity: listActivity[index]);
+                                    },
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                          Text(
-                            "/ tuesday",
-                            style: mobileBody2.copyWith(color: neutral500),
+                        );
+                      },
+                      loading: () {
+                        return const Center(
+                          child: CircularProgressIndicator.adaptive(),
+                        );
+                      },
+                      error: (message) {
+                        return const Center(
+                          child: Icon(Icons.warning),
+                        );
+                      },
+                      success: (activities) {
+                        var listActivity = activities;
+                        return Expanded(
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  const Text(
+                                    "Today ",
+                                    style: mobileSubtitle1,
+                                  ),
+                                  Text(
+                                    "/ tuesday",
+                                    style:
+                                        mobileBody2.copyWith(color: neutral500),
+                                  ),
+                                ],
+                              ),
+                              Expanded(
+                                flex: 4,
+                                child: ScrollConfiguration(
+                                  behavior: MyCustomScrollBehavior(),
+                                  child: ListView.builder(
+                                    itemCount: listActivity.length,
+                                    itemBuilder: (context, index) {
+                                      return ActivityCard(
+                                          activity: listActivity[index]);
+                                    },
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                      Expanded(
-                        flex: 4,
-                        child: ScrollConfiguration(
-                          behavior: MyCustomScrollBehavior(),
-                          child: ListView.builder(
-                            itemCount: activityList.length,
-                            itemBuilder: (context, index) {
-                              return ActivityCard(
-                                  activity: activityList[index]);
-                            },
+                        );
+                      },
+                      empty: () {
+                        return const Center(
+                          child: Text(
+                            "No activity yet",
+                            style: desktopHeading2,
                           ),
-                        ),
-                      ),
-                    ],
-                  ),
+                        );
+                      },
+                    );
+                  },
                 ),
               ],
             ),
