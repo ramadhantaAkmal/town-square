@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:town_square/config/themes/text_styles.dart';
 import 'package:town_square/config/themes/themes.dart';
-import 'package:town_square/features/activity_screen/viewmodel/bloc/activity_bloc.dart';
-import 'package:town_square/misc/activity_list.dart';
 
 class FilterButton extends StatefulWidget {
   final String text;

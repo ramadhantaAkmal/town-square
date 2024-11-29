@@ -292,13 +292,19 @@ class ActivityWidget extends StatelessWidget {
                         );
                       },
                       loading: () {
-                        return const Center(
-                          child: CircularProgressIndicator.adaptive(),
+                        return const Padding(
+                          padding: EdgeInsets.only(left: 200),
+                          child: Center(
+                            child: CircularProgressIndicator.adaptive(),
+                          ),
                         );
                       },
                       error: (message) {
-                        return const Center(
-                          child: Icon(Icons.warning),
+                        return const Padding(
+                          padding: EdgeInsets.only(left: 200),
+                          child: Center(
+                            child: Icon(Icons.warning),
+                          ),
                         );
                       },
                       success: (activities) {
@@ -337,10 +343,13 @@ class ActivityWidget extends StatelessWidget {
                         );
                       },
                       empty: () {
-                        return const Center(
-                          child: Text(
-                            "No activity yet",
-                            style: desktopHeading2,
+                        return const Padding(
+                          padding: EdgeInsets.only(left: 200),
+                          child: Center(
+                            child: Text(
+                              "No activity yet",
+                              style: desktopHeading2,
+                            ),
                           ),
                         );
                       },

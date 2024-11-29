@@ -15,10 +15,26 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
   void onFilterActivity(
       FilterActivity event, Emitter<ActivityState> emit) async {
     emit(const _LoadingState());
+
+    if (event.categories.contains("all") || event.categories.isEmpty) {
+      emit(_SuccessState(activityList));
+      return;
+    }
+
+    if (event.categories.contains("calm")) {
+      emit(const _ErrorState("Error found"));
+      return;
+    }
+
     await Future.delayed(const Duration(seconds: 1));
     var activities = event.activities
         .where((item) => event.categories.contains(item.category))
         .toList();
-    emit(_SuccessState(activities));
+
+    if (activities.isNotEmpty) {
+      emit(_SuccessState(activities));
+    } else {
+      emit(const _EmptyState());
+    }
   }
 }
