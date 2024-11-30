@@ -12,20 +12,24 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
     on<FilterActivity>(onFilterActivity);
   }
 
+  ///Logic for filtering the activity list
   void onFilterActivity(
       FilterActivity event, Emitter<ActivityState> emit) async {
     emit(const _LoadingState());
 
+    ///when the conditions are true it will emit a success state with an initial activity list data
     if (event.categories.contains("all") || event.categories.isEmpty) {
       emit(_SuccessState(activityList));
       return;
     }
 
+    ///this is used for example only when
     if (event.categories.contains("calm")) {
       emit(const _ErrorState("Error found"));
       return;
     }
 
+    ///delayed effect used for showing the loading indicator
     await Future.delayed(const Duration(seconds: 1));
     var activities = event.activities
         .where((item) => event.categories.contains(item.category))

@@ -6,7 +6,6 @@ import 'package:town_square/config/themes/themes.dart';
 import 'package:town_square/features/activity_screen/model/activity_model.dart';
 import 'package:town_square/main.dart';
 import 'package:town_square/utils/responsive_checker.dart';
-import 'package:town_square/utils/theme_controller.dart';
 
 class ActivityCard extends StatefulWidget {
   final ActivityModel activity;

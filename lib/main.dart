@@ -74,7 +74,6 @@ class _MainActivityState extends State<MainActivity> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       extendBodyBehindAppBar: true,
-      // backgroundColor: neutral100,
       extendBody: true,
       body: _buildBody(context),
       bottomNavigationBar: _buildBottomNavbar(context),
@@ -132,7 +131,6 @@ class _MainActivityState extends State<MainActivity> {
             onTap: (value) {
               //put some function when the navbar tapped
               //[value] is the index of the navbar item
-              print(themeManager.themeMode);
             },
             items: [
               BottomNavigationBarItem(
