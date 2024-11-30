@@ -9,22 +9,30 @@ import 'package:town_square/features/activity_screen/view/activity/widgets/activ
 import 'package:town_square/features/activity_screen/view/activity/widgets/filter_button.dart';
 import 'package:town_square/features/activity_screen/view/activity/widgets/goal_banner.dart';
 import 'package:town_square/features/activity_screen/view/activity/widgets/search_textfield.dart';
-import 'package:town_square/features/activity_screen/viewmodel/bloc/activity_bloc.dart';
+import 'package:town_square/features/activity_screen/viewmodel/activity_bloc/activity_bloc.dart';
+import 'package:town_square/main.dart';
 import 'package:town_square/misc/activity_list.dart';
 import 'package:town_square/utils/custom_scroll.dart';
 import 'package:town_square/utils/responsive_checker.dart';
 
-class ActivityWidget extends StatelessWidget {
+class ActivityWidget extends StatefulWidget {
   const ActivityWidget({super.key});
-
-  static bool isDesktop = false;
 
   static final ScrollController scrollController = ScrollController();
 
   static List<String> categories = [];
 
   @override
+  State<ActivityWidget> createState() => _ActivityWidgetState();
+}
+
+class _ActivityWidgetState extends State<ActivityWidget> {
+  bool isDesktop = false;
+
+  @override
   Widget build(BuildContext context) {
+    TextTheme textTheme = Theme.of(context).textTheme;
+    bool theme = themeManager.themeMode == ThemeMode.dark;
     isDesktop = Responsive.isDesktop(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -49,7 +57,9 @@ class ActivityWidget extends StatelessWidget {
                   children: [
                     IconButton(
                       onPressed: () {},
-                      icon: SvgPicture.asset("assets/icons/bell.svg"),
+                      icon: theme
+                          ? SvgPicture.asset("assets/icons/bell_darkmode.svg")
+                          : SvgPicture.asset("assets/icons/bell.svg"),
                     ),
                     InkWell(
                       onTap: () {},
@@ -70,9 +80,7 @@ class ActivityWidget extends StatelessWidget {
           ),
           child: Text(
             "This week in Estepona",
-            style: !isDesktop
-                ? mobileHeading2.copyWith(color: neutralBlack)
-                : desktopHeading2.copyWith(color: neutralBlack),
+            style: textTheme.headlineLarge,
           ),
         ),
         if (!isDesktop)
@@ -95,7 +103,7 @@ class ActivityWidget extends StatelessWidget {
             behavior: MyCustomScrollBehavior(),
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              controller: scrollController,
+              controller: ActivityWidget.scrollController,
               child: Row(
                 children: [
                   Padding(
@@ -119,14 +127,15 @@ class ActivityWidget extends StatelessWidget {
                     child: FilterButton(
                       text: "All",
                       fn: () {
-                        if (categories.contains("all")) {
-                          categories.remove("all");
+                        if (ActivityWidget.categories.contains("all")) {
+                          ActivityWidget.categories.remove("all");
                         } else {
-                          categories.add("all");
+                          ActivityWidget.categories.add("all");
                         }
 
-                        BlocProvider.of<ActivityBloc>(context)
-                            .add(FilterActivity(activityList, categories));
+                        BlocProvider.of<ActivityBloc>(context).add(
+                            FilterActivity(
+                                activityList, ActivityWidget.categories));
                       },
                     ),
                   ),
@@ -135,13 +144,14 @@ class ActivityWidget extends StatelessWidget {
                     child: FilterButton(
                       text: "Sports",
                       fn: () {
-                        if (categories.contains("sports")) {
-                          categories.remove("sports");
+                        if (ActivityWidget.categories.contains("sports")) {
+                          ActivityWidget.categories.remove("sports");
                         } else {
-                          categories.add("sports");
+                          ActivityWidget.categories.add("sports");
                         }
-                        BlocProvider.of<ActivityBloc>(context)
-                            .add(FilterActivity(activityList, categories));
+                        BlocProvider.of<ActivityBloc>(context).add(
+                            FilterActivity(
+                                activityList, ActivityWidget.categories));
                       },
                     ),
                   ),
@@ -150,13 +160,14 @@ class ActivityWidget extends StatelessWidget {
                     child: FilterButton(
                       text: "Food",
                       fn: () {
-                        if (categories.contains("food")) {
-                          categories.remove("food");
+                        if (ActivityWidget.categories.contains("food")) {
+                          ActivityWidget.categories.remove("food");
                         } else {
-                          categories.add("food");
+                          ActivityWidget.categories.add("food");
                         }
-                        BlocProvider.of<ActivityBloc>(context)
-                            .add(FilterActivity(activityList, categories));
+                        BlocProvider.of<ActivityBloc>(context).add(
+                            FilterActivity(
+                                activityList, ActivityWidget.categories));
                       },
                     ),
                   ),
@@ -165,13 +176,14 @@ class ActivityWidget extends StatelessWidget {
                     child: FilterButton(
                       text: "Kids",
                       fn: () {
-                        if (categories.contains("kids")) {
-                          categories.remove("kids");
+                        if (ActivityWidget.categories.contains("kids")) {
+                          ActivityWidget.categories.remove("kids");
                         } else {
-                          categories.add("kids");
+                          ActivityWidget.categories.add("kids");
                         }
-                        BlocProvider.of<ActivityBloc>(context)
-                            .add(FilterActivity(activityList, categories));
+                        BlocProvider.of<ActivityBloc>(context).add(
+                            FilterActivity(
+                                activityList, ActivityWidget.categories));
                       },
                     ),
                   ),
@@ -180,13 +192,14 @@ class ActivityWidget extends StatelessWidget {
                     child: FilterButton(
                       text: "Creative",
                       fn: () {
-                        if (categories.contains("creative")) {
-                          categories.remove("creative");
+                        if (ActivityWidget.categories.contains("creative")) {
+                          ActivityWidget.categories.remove("creative");
                         } else {
-                          categories.add("creative");
+                          ActivityWidget.categories.add("creative");
                         }
-                        BlocProvider.of<ActivityBloc>(context)
-                            .add(FilterActivity(activityList, categories));
+                        BlocProvider.of<ActivityBloc>(context).add(
+                            FilterActivity(
+                                activityList, ActivityWidget.categories));
                       },
                     ),
                   ),
@@ -195,13 +208,14 @@ class ActivityWidget extends StatelessWidget {
                     child: FilterButton(
                       text: "Popular",
                       fn: () {
-                        if (categories.contains("popular")) {
-                          categories.remove("popular");
+                        if (ActivityWidget.categories.contains("popular")) {
+                          ActivityWidget.categories.remove("popular");
                         } else {
-                          categories.add("popular");
+                          ActivityWidget.categories.add("popular");
                         }
-                        BlocProvider.of<ActivityBloc>(context)
-                            .add(FilterActivity(activityList, categories));
+                        BlocProvider.of<ActivityBloc>(context).add(
+                            FilterActivity(
+                                activityList, ActivityWidget.categories));
                       },
                     ),
                   ),
@@ -210,13 +224,14 @@ class ActivityWidget extends StatelessWidget {
                     child: FilterButton(
                       text: "Calm",
                       fn: () {
-                        if (categories.contains("calm")) {
-                          categories.remove("calm");
+                        if (ActivityWidget.categories.contains("calm")) {
+                          ActivityWidget.categories.remove("calm");
                         } else {
-                          categories.add("calm");
+                          ActivityWidget.categories.add("calm");
                         }
-                        BlocProvider.of<ActivityBloc>(context)
-                            .add(FilterActivity(activityList, categories));
+                        BlocProvider.of<ActivityBloc>(context).add(
+                            FilterActivity(
+                                activityList, ActivityWidget.categories));
                       },
                     ),
                   ),
@@ -263,9 +278,9 @@ class ActivityWidget extends StatelessWidget {
                             children: [
                               Row(
                                 children: [
-                                  const Text(
+                                  Text(
                                     "Today ",
-                                    style: mobileSubtitle1,
+                                    style: textTheme.titleLarge,
                                   ),
                                   Text(
                                     "/ tuesday",

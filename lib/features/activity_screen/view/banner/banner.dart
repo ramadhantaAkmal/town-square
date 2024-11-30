@@ -33,24 +33,24 @@ class BannerWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   "Weekly workshops",
-                  style: desktopSubtitle2,
+                  style: desktopSubtitle2.copyWith(color: Colors.black),
                   maxLines: 2,
                 ),
-                const Padding(
+                Padding(
                   padding: EdgeInsets.only(bottom: 9),
                   child: Text(
                     "for kids",
-                    style: desktopSubtitle2,
+                    style: desktopSubtitle2.copyWith(color: Colors.black),
                     maxLines: 2,
                   ),
                 ),
-                const Padding(
+                Padding(
                   padding: EdgeInsets.only(bottom: 9),
                   child: Text(
                     "Sign up for early access to weekly activities for your kids full of learning and fun!",
-                    style: desktopBody3,
+                    style: desktopBody3.copyWith(color: Colors.black),
                   ),
                 ),
                 Padding(
@@ -60,8 +60,8 @@ class BannerWidget extends StatelessWidget {
                     child: Container(
                       height: 28,
                       width: 244,
-                      padding:
-                          const EdgeInsets.symmetric(horizontal: defaultSize * 2),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: defaultSize * 2),
                       decoration: const BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.all(
@@ -82,7 +82,8 @@ class BannerWidget extends StatelessWidget {
                             style: TextStyle(
                                 fontFamily: "SFProDisplay",
                                 fontWeight: FontWeight.w400,
-                                fontSize: 15),
+                                fontSize: 15,
+                                color: Colors.black),
                           ),
                           SvgPicture.asset(
                               "assets/icons/arrow-right-circle.svg"),
@@ -167,7 +168,8 @@ class BannerWidget extends StatelessWidget {
                                 style: TextStyle(
                                     fontFamily: "SFProDisplay",
                                     fontWeight: FontWeight.w500,
-                                    fontSize: 16),
+                                    fontSize: 16,
+                                    color: Colors.black),
                               ),
                             ),
                           ),

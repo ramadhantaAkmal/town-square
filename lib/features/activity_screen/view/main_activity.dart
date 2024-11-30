@@ -6,20 +6,42 @@ import 'package:town_square/features/activity_screen/view/activity/activity_widg
 import 'package:town_square/features/activity_screen/view/banner/banner.dart';
 import 'package:town_square/features/activity_screen/view/side_menu/side_menu.dart';
 import 'package:town_square/utils/responsive_checker.dart';
+import 'package:town_square/utils/theme_controller.dart';
 
-class MainActivity extends StatelessWidget {
+class MainActivity extends StatefulWidget {
   const MainActivity({super.key});
-  static bool isDesktop = false;
 
+  @override
+  State<MainActivity> createState() => _MainActivityState();
+}
+
+ThemeController _themeManager = ThemeController();
+
+class _MainActivityState extends State<MainActivity> {
+  bool isDesktop = false;
+  bool isThemeMode = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       extendBodyBehindAppBar: true,
-      backgroundColor: neutral100,
+      // backgroundColor: neutral100,
       extendBody: true,
       body: _buildBody(context),
       bottomNavigationBar: _buildBottomNavbar(context),
+      // floatingActionButton: _buildFAB(),
+    );
+  }
+
+  _buildFAB() {
+    return FloatingActionButton(
+      onPressed: () {
+        setState(() {
+          isThemeMode = !isThemeMode;
+        });
+        _themeManager.toggleTheme(isThemeMode);
+      },
+      child: Icon(isThemeMode ? Icons.light_mode : Icons.dark_mode),
     );
   }
 
@@ -61,7 +83,7 @@ class MainActivity extends StatelessWidget {
             onTap: (value) {
               //put some function when the navbar tapped
               //[value] is the index of the navbar item
-              print(value);
+              print(_themeManager.themeMode);
             },
             items: [
               BottomNavigationBarItem(

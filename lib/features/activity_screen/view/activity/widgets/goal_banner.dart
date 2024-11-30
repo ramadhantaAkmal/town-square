@@ -32,13 +32,13 @@ class GoalBanner extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     "You're close to your goal!",
-                    style: mobileSubtitle1,
+                    style: mobileSubtitle1.copyWith(color: Colors.black),
                   ),
-                  const Text(
+                  Text(
                     "Join more sport activities to collect more points",
-                    style: desktopBody3,
+                    style: desktopBody3.copyWith(color: Colors.black),
                     maxLines: 2,
                   ),
                   Padding(
@@ -110,7 +110,7 @@ class GoalBanner extends StatelessWidget {
                       const Center(
                         child: Text(
                           "27",
-                          style: TextStyle(fontSize: 25),
+                          style: TextStyle(fontSize: 25, color: Colors.black),
                         ),
                       ),
                     ],
