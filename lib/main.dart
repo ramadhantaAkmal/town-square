@@ -127,6 +127,7 @@ class _MainActivityState extends State<MainActivity> {
             showUnselectedLabels: false,
             unselectedFontSize: 0,
             selectedFontSize: 0,
+            currentIndex: 2,
             elevation: 7,
             onTap: (value) {
               //put some function when the navbar tapped
@@ -134,20 +135,31 @@ class _MainActivityState extends State<MainActivity> {
             },
             items: [
               BottomNavigationBarItem(
-                  icon: SvgPicture.asset("assets/icons/calendar.svg"),
-                  label: "Activities",
-                  backgroundColor: Colors.white),
+                icon: SvgPicture.asset(isThemeMode
+                    ? "assets/icons/calendar_white.svg"
+                    : "assets/icons/calendar.svg"),
+                label: "Activities",
+              ),
               BottomNavigationBarItem(
-                  icon: SvgPicture.asset("assets/icons/map.svg"),
+                  icon: SvgPicture.asset(isThemeMode
+                      ? "assets/icons/map_white.svg"
+                      : "assets/icons/map.svg"),
                   label: "Locations"),
               BottomNavigationBarItem(
-                  icon: SvgPicture.asset("assets/icons/plus.svg"),
-                  label: "add"),
+                  icon: SvgPicture.asset(isThemeMode
+                      ? "assets/icons/plus_darkmode.svg"
+                      : "assets/icons/plus.svg"),
+                  label: "add",
+                  backgroundColor: isThemeMode ? neutralBlack : Colors.white),
               BottomNavigationBarItem(
-                  icon: SvgPicture.asset("assets/icons/users.svg"),
+                  icon: SvgPicture.asset(isThemeMode
+                      ? "assets/icons/users_white.svg"
+                      : "assets/icons/users.svg"),
                   label: "users"),
               BottomNavigationBarItem(
-                  icon: SvgPicture.asset("assets/icons/star.svg"),
+                  icon: SvgPicture.asset(isThemeMode
+                      ? "assets/icons/star_white.svg"
+                      : "assets/icons/star.svg"),
                   label: "Services"),
             ],
           )

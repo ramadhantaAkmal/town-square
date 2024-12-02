@@ -308,18 +308,14 @@ class _ActivityWidgetState extends State<ActivityWidget> {
                       },
                       loading: () {
                         return const Padding(
-                          padding: EdgeInsets.only(left: 200),
-                          child: Center(
-                            child: CircularProgressIndicator.adaptive(),
-                          ),
+                          padding: EdgeInsets.only(left: 150),
+                          child: CircularProgressIndicator.adaptive(),
                         );
                       },
                       error: (message) {
                         return const Padding(
-                          padding: EdgeInsets.only(left: 200),
-                          child: Center(
-                            child: Icon(Icons.warning),
-                          ),
+                          padding: EdgeInsets.only(left: 150),
+                          child: Icon(Icons.warning),
                         );
                       },
                       success: (activities) {
@@ -359,12 +355,10 @@ class _ActivityWidgetState extends State<ActivityWidget> {
                       },
                       empty: () {
                         return const Padding(
-                          padding: EdgeInsets.only(left: 200),
-                          child: Center(
-                            child: Text(
-                              "No activity yet",
-                              style: desktopHeading2,
-                            ),
+                          padding: EdgeInsets.only(left: 100),
+                          child: Text(
+                            "No activity yet",
+                            style: desktopHeading2,
                           ),
                         );
                       },

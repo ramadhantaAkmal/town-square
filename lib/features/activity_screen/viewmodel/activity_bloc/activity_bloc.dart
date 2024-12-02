@@ -17,6 +17,9 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
       FilterActivity event, Emitter<ActivityState> emit) async {
     emit(const _LoadingState());
 
+    ///delayed effect to simulate the loading progress
+    await Future.delayed(const Duration(seconds: 1));
+
     ///when the conditions are true it will emit a success state with an initial activity list data
     if (event.categories.contains("all") || event.categories.isEmpty) {
       emit(_SuccessState(activityList));
@@ -29,8 +32,6 @@ class ActivityBloc extends Bloc<ActivityEvent, ActivityState> {
       return;
     }
 
-    ///delayed effect used for showing the loading indicator
-    await Future.delayed(const Duration(seconds: 1));
     var activities = event.activities
         .where((item) => event.categories.contains(item.category))
         .toList();

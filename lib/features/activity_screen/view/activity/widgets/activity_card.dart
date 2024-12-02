@@ -200,7 +200,7 @@ class _ActivityCardState extends State<ActivityCard> {
                             decoration: BoxDecoration(
                                 color: theme ? Colors.white : neutralBlack,
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(4))),
+                                    const BorderRadius.all(Radius.circular(4))),
                             child: Center(
                               child: Text(
                                 "Join",

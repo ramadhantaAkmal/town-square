@@ -39,7 +39,7 @@ class BannerWidget extends StatelessWidget {
                   maxLines: 2,
                 ),
                 Padding(
-                  padding: EdgeInsets.only(bottom: 9),
+                  padding: const EdgeInsets.only(bottom: 9),
                   child: Text(
                     "for kids",
                     style: desktopSubtitle2.copyWith(color: Colors.black),
@@ -47,7 +47,7 @@ class BannerWidget extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(bottom: 9),
+                  padding: const EdgeInsets.only(bottom: 9),
                   child: Text(
                     "Sign up for early access to weekly activities for your kids full of learning and fun!",
                     style: desktopBody3.copyWith(color: Colors.black),
