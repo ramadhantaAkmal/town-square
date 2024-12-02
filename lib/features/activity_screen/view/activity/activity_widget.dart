@@ -338,15 +338,13 @@ class _ActivityWidgetState extends State<ActivityWidget> {
                               ),
                               Expanded(
                                 flex: 4,
-                                child: ScrollConfiguration(
-                                  behavior: MyCustomScrollBehavior(),
-                                  child: ListView.builder(
-                                    itemCount: listActivity.length,
-                                    itemBuilder: (context, index) {
-                                      return ActivityCard(
-                                          activity: listActivity[index]);
-                                    },
-                                  ),
+                                child: ListView.builder(
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  itemCount: listActivity.length,
+                                  itemBuilder: (context, index) {
+                                    return ActivityCard(
+                                        activity: listActivity[index]);
+                                  },
                                 ),
                               ),
                             ],

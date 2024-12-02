@@ -68,7 +68,7 @@ class MainActivity extends StatefulWidget {
 
 class _MainActivityState extends State<MainActivity> {
   bool isDesktop = false;
-  bool isThemeMode = true;
+  bool isDarkMode = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,11 +85,11 @@ class _MainActivityState extends State<MainActivity> {
     return FloatingActionButton(
       onPressed: () {
         setState(() {
-          isThemeMode = !isThemeMode;
+          isDarkMode = !isDarkMode;
         });
-        themeManager.toggleTheme(isThemeMode);
+        themeManager.toggleTheme(isDarkMode);
       },
-      child: Icon(isThemeMode ? Icons.dark_mode : Icons.light_mode),
+      child: Icon(isDarkMode ? Icons.dark_mode : Icons.light_mode),
     );
   }
 
@@ -135,29 +135,29 @@ class _MainActivityState extends State<MainActivity> {
             },
             items: [
               BottomNavigationBarItem(
-                icon: SvgPicture.asset(isThemeMode
+                icon: SvgPicture.asset(isDarkMode
                     ? "assets/icons/calendar_white.svg"
                     : "assets/icons/calendar.svg"),
                 label: "Activities",
               ),
               BottomNavigationBarItem(
-                  icon: SvgPicture.asset(isThemeMode
+                  icon: SvgPicture.asset(isDarkMode
                       ? "assets/icons/map_white.svg"
                       : "assets/icons/map.svg"),
                   label: "Locations"),
               BottomNavigationBarItem(
-                  icon: SvgPicture.asset(isThemeMode
+                  icon: SvgPicture.asset(isDarkMode
                       ? "assets/icons/plus_darkmode.svg"
                       : "assets/icons/plus.svg"),
                   label: "add",
-                  backgroundColor: isThemeMode ? neutralBlack : Colors.white),
+                  backgroundColor: isDarkMode ? neutralBlack : Colors.white),
               BottomNavigationBarItem(
-                  icon: SvgPicture.asset(isThemeMode
+                  icon: SvgPicture.asset(isDarkMode
                       ? "assets/icons/users_white.svg"
                       : "assets/icons/users.svg"),
                   label: "users"),
               BottomNavigationBarItem(
-                  icon: SvgPicture.asset(isThemeMode
+                  icon: SvgPicture.asset(isDarkMode
                       ? "assets/icons/star_white.svg"
                       : "assets/icons/star.svg"),
                   label: "Services"),
